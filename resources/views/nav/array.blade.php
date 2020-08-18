@@ -31,6 +31,7 @@
 		      <td>{{$val['email']}}</td>
 		      <td>{{$val['address']}}</td>
 		      @foreach($val['score'] as $key=>$value)
+		      	<td>{{$key}}</td>
 		      	<td>{{$value}}</td>
 		       @endforeach
 		    </tr>
