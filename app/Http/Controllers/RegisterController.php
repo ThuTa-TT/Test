@@ -117,27 +117,23 @@ class RegisterController extends Controller
     public function destroy($id)
     {
 
-       $delete=DB::table('registers')
+       $deletetime=DB::table('registers')
+                   ->where('id',$id)
+                   ->update(['deleted_at'=>Carbon::now()]);
+
+       return redirect()->route('registers');
+       
+    }
+    public function deleteup(Request $request,$id)
+    {
+        
+
+        $delete=DB::table('registers')
                    ->where('id',$id)
                    ->delete();
 
        return redirect()->route('registers');
-    }
-    public function deleteup(Request $request,$id)
-    {
-        $users=DB::table('registers')
-                   ->where('id',$id)
-                   ->update([
-                    'name'=>$request->name,
-                    "gender"=>$request->gender,
-                    "email"=>$request->email,
-                    "password"=>$request->pwd,
-                    "phone"=>$request->phone,
-                    "address"=>$request->add,
-
-                    'deleted_at'=>Carbon::now()]);
-
-       return redirect()->route('registers');
 
     }
+    
 }

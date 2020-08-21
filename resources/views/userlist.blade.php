@@ -34,17 +34,22 @@
       		<form method="post" action="{{route('destroy',$row->id)}}">
       			@csrf
       			@method('DELETE')
-      			<button type="submit" class="btn btn-danger">Delete</button>
+      			<button type="submit" class="btn btn-danger">Delete_Time</button>
       		</form>
       	</td>
+        <td>
+          <form method="post" action="{{route('deleteup',$row->id)}}">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </td>
       
      
          
     </tr>
    @endforeach 
-  </tbody>
-
-  
+  </tbody> 
 </table>
-
+          <a href="{{url('/register')}}">Back To Register
 @endsection
